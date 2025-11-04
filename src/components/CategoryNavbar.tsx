@@ -6,7 +6,7 @@ function CategoryNavbar() {
   const [activeCategory, setActiveCategory] = useState('All');
 
   return (
-    <nav className="flex md:flex-col overflow-x-auto lg:overflow-visible gap-2 w-full scrollbar-hide">
+    <nav className="flex md:flex-col overflow-x-auto lg:overflow-visible gap-2 w-full scrollbar-hide justify-center">
       {categories.map(cat => (
         <button
           key={cat}
@@ -14,6 +14,7 @@ function CategoryNavbar() {
           className={`
             ${activeCategory === cat ? 'font-bold' : ''}
             whitespace-nowrap
+            md:text-left
           `}
         >
           {cat}
