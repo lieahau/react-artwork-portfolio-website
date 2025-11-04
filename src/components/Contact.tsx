@@ -1,0 +1,25 @@
+import { FaInstagram, FaDiscord, FaFacebook } from 'react-icons/fa';
+
+function Contact() {
+  return (
+    <>
+      {/* Contact Label */}
+      <h2 className="text-l sm:text-xl font-bold uppercase">Contact Me!</h2>
+
+      {/* Social Media */}
+      <div className="flex space-x-5 text-gray-600 text-xl">
+        <a href="#" target="blank" className="hover:text-black">
+          <FaInstagram />
+        </a>
+        <a href="#" target="blank" className="hover:text-black">
+          <FaDiscord />
+        </a>
+        <a href="#" target="blank" className="hover:text-black">
+          <FaFacebook />
+        </a>
+      </div>
+    </>
+  );
+}
+
+export default Contact;
