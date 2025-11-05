@@ -16,16 +16,16 @@ function Home({ onNavigate }: HomeProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-      className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8 items-center m-6"
+      className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-5 md:gap-8 items-center m-4 md:m-5"
     >
       {/* Left Column */}
-      <div className="text-center md:text-left space-y-3 px-3">
+      <div className="text-center md:text-left space-y-3 px-1 md:px-3">
         <About />
         <ArtworksButton onNavigate={onNavigate} />
       </div>
 
       {/* Right Column */}
-      <div className="text-center md:text-left flex flex-col items-center space-y-3 px-3">
+      <div className="flex flex-col items-center space-y-3 px-1 md:px-3">
         <ProfilePicture />
         <Contact />
       </div>
