@@ -16,12 +16,16 @@ export default function Artworks({ onBack }: ArtworksProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-      className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-8 items-stretch m-6"
+      className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 items-stretch m-6"
     >
       {/* Left Column */}
       <div className="flex flex-col justify-between">
-        <BackButton onBack={onBack} />
-        <CategoryNavbar />
+        <div>
+          <BackButton onBack={onBack} />
+        </div>
+        <div>
+          <CategoryNavbar />
+        </div>
         <div className="hidden md:block">
           <OtherArts />
         </div>

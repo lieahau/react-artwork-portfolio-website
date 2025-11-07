@@ -1,12 +1,32 @@
 import { useState } from 'react';
 
-const categories = ['All', 'Digital', 'Traditional', 'Photography', 'Sculpture'];
+const categories = [
+  'All',
+  'Digital',
+  'Traditional',
+  'Photography',
+  'Sculpture',
+  'Doodles',
+  '3D',
+  'Animation',
+  'Concept Art',
+];
 
 function CategoryNavbar() {
   const [activeCategory, setActiveCategory] = useState('All');
 
   return (
-    <nav className="flex md:flex-col overflow-x-auto lg:overflow-visible gap-2 w-full scrollbar-hide justify-center">
+    <nav
+      className="
+        flex md:flex-col 
+        overflow-x-auto md:overflow-y-auto
+        gap-2 md:gap-1
+        scrollbar-hide
+        justify-start md:justify-center-safe
+        px-2 md:px-0 md:py-2
+        md:max-h-[35vh]
+      "
+    >
       {categories.map(cat => (
         <button
           key={cat}
