@@ -4,7 +4,9 @@ function Contact() {
   return (
     <>
       {/* Contact Label */}
-      <h2 className="text-base md:text-lg font-bold uppercase">Contact Me!</h2>
+      <h2 className="text-base md:text-lg font-bold uppercase text-black dark:text-white">
+        Contact Me!
+      </h2>
 
       {/* Social Media */}
       <div className="flex space-x-5 text-gray-600 text-xl">

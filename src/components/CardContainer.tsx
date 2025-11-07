@@ -6,7 +6,7 @@ interface CardContainerProps {
 }
 
 function CardContainer({ children, size = 'normal' }: CardContainerProps) {
-  const sizeClasses = size === 'large' ? 'max-w-3xl max-h-2xl' : 'max-w-2xl max-h-l';
+  const sizeClasses = size === 'large' ? 'max-w-2xl' : 'max-w-3xl';
 
   return (
     <div className="flex items-center justify-center h-screen">
@@ -15,7 +15,7 @@ function CardContainer({ children, size = 'normal' }: CardContainerProps) {
         transition={{
           layout: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
         }}
-        className={`bg-white rounded-2xl shadow-xl w-full ${sizeClasses}`}
+        className={`bg-white dark:bg-gray-600 rounded-2xl shadow-xl w-full ${sizeClasses}`}
       >
         {children}
       </motion.div>

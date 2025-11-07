@@ -12,9 +12,18 @@ function CategoryNavbar() {
           key={cat}
           onClick={() => setActiveCategory(cat)}
           className={`
-            ${activeCategory === cat ? 'font-bold' : ''}
+            transition-all duration-200
+            relative
+            pb-1
             whitespace-nowrap
             md:text-left
+            text-sm md:text-lg
+            text-black dark:text-white
+            ${
+              activeCategory === cat
+                ? 'font-bold after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-blue-500 dark:after:bg-white'
+                : 'hover:opacity-75'
+            }
           `}
         >
           {cat}

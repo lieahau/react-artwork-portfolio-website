@@ -83,7 +83,7 @@ export default function Gallery() {
             {currentItems.map((src, index) => (
               <div
                 key={index}
-                className="w-full h-full aspect-square overflow-hidden rounded-lg border border-gray-200 bg-gray-100"
+                className="w-full h-full aspect-square overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-500"
               >
                 <img
                   src={src}
@@ -101,19 +101,19 @@ export default function Gallery() {
         <button
           onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
           disabled={currentPage === 1}
-          className="text-lg font-medium disabled:opacity-40 hover:scale-110 transition-transform"
+          className="text-lg font-medium disabled:opacity-40 hover:scale-110 transition-transform text-black dark:text-white"
         >
           &lt;
         </button>
 
-        <span className="text-sm font-medium">
+        <span className="text-sm font-medium text-black dark:text-white">
           {currentPage} / {totalPages}
         </span>
 
         <button
           onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
           disabled={currentPage === totalPages}
-          className="text-lg font-medium disabled:opacity-40 hover:scale-110 transition-transform"
+          className="text-lg font-medium disabled:opacity-40 hover:scale-110 transition-transform text-black dark:text-white"
         >
           &gt;
         </button>
