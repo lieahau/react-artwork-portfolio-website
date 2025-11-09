@@ -60,7 +60,7 @@ export default defineConfig([
       'no-debugger': 'error',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-require-imports': 'off',
-
+      'jsx-a11y/click-events-have-key-events': 'off',
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {

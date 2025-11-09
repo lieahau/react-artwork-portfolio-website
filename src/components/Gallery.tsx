@@ -19,6 +19,7 @@ export default function Gallery() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(9);
   const [direction, setDirection] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   // Detect screen size and adjust items per page
   useEffect(() => {
@@ -59,6 +60,18 @@ export default function Gallery() {
     setCurrentPage(newPage);
   };
 
+  const handleNextImage = () => {
+    if (selectedIndex === null) return;
+    setSelectedIndex((selectedIndex + 1) % artworks.length);
+  };
+
+  const handlePrevImage = () => {
+    if (selectedIndex === null) return;
+    setSelectedIndex((selectedIndex - 1 + artworks.length) % artworks.length);
+  };
+
+  const closePopup = () => setSelectedIndex(null);
+
   return (
     <div className='flex flex-col h-full p-0 overflow-hidden'>
       {/* Grid */}
@@ -84,12 +97,14 @@ export default function Gallery() {
             {currentItems.map((src, index) => (
               <div
                 key={index}
+                onClick={() => setSelectedIndex(startIndex + index)}
                 className='
                   w-full h-full
                   overflow-hidden
                   aspect-square rounded-lg
                   bg-gray-100 dark:bg-gray-500
                   mx-auto
+                  cursor-pointer
                   max-w-[85%] md:max-w-none
                   max-h-[85%] md:max-h-none
                 '
@@ -139,6 +154,74 @@ export default function Gallery() {
           &gt;
         </button>
       </div>
+
+      <AnimatePresence>
+        {selectedIndex !== null && (
+          <motion.div
+            className='fixed inset-0 bg-black/70 flex items-center justify-center z-50'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closePopup}
+          >
+            <div className='relative w-[90%] md:w-[70%]'>
+              <img
+                src={artworks[selectedIndex]}
+                alt='Selected artwork'
+                className='w-full h-auto max-h-[85vh] object-contain rounded-lg'
+                onClick={e => e.stopPropagation()}
+              />
+
+              <button
+                onClick={e => {
+                  e.stopPropagation();
+                  handlePrevImage();
+                }}
+                className='
+                  absolute left-0 md:left-[-3rem] top-1/2 -translate-y-1/2
+                  text-white text-3xl md:text-4xl font-bold
+                  opacity-50 md:opacity-100
+                  hover:scale-120 transition-transform
+                  select-none
+                '
+              >
+                &lt;
+              </button>
+
+              <button
+                onClick={e => {
+                  e.stopPropagation();
+                  handleNextImage();
+                }}
+                className='
+                  absolute right-0 md:right-[-3rem] top-1/2 -translate-y-1/2
+                  text-white text-3xl md:text-4xl font-bold
+                  opacity-50 md:opacity-100
+                  hover:scale-120 transition-transform
+                  select-none
+                '
+              >
+                &gt;
+              </button>
+
+              <button
+                onClick={e => {
+                  e.stopPropagation();
+                  closePopup();
+                }}
+                className='
+                  absolute top-[-1rem] right-[-0.5rem]
+                  text-white text-xl md:text-2xl font-bold
+                  hover:scale-120 transition-transform
+                  select-none
+                '
+              >
+                ✕
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
