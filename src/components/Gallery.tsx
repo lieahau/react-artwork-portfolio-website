@@ -212,6 +212,7 @@ export default function Gallery() {
                 className='
                   absolute top-[-1rem] right-[-0.5rem]
                   text-white text-xl md:text-2xl font-bold
+                  opacity-50 md:opacity-100
                   hover:scale-120 transition-transform
                   select-none
                 '
