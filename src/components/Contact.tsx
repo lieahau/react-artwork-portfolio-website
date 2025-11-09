@@ -9,7 +9,7 @@ export default function Contact() {
       </h2>
 
       {/* Social Media */}
-      <div className='flex space-x-5 text-gray-600 text-xl'>
+      <div className='flex space-x-5 text-white text-xl'>
         <a href='#' target='blank' className='hover:text-black'>
           <FaInstagram />
         </a>
