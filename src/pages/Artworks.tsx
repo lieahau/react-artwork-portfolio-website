@@ -32,7 +32,7 @@ export default function Artworks({ onBack }: ArtworksProps) {
       </div>
 
       {/* Right Column */}
-      <div className='flex flex-col overflow-hidden'>
+      <div className='flex flex-col overflow-hidden gap-2 md:gap-0'>
         <Gallery />
         <div className='block md:hidden'>
           <OtherArts />
