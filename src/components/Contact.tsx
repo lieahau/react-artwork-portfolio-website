@@ -1,6 +1,6 @@
 import { FaInstagram, FaDiscord, FaFacebook } from 'react-icons/fa';
 
-function Contact() {
+export default function Contact() {
   return (
     <>
       {/* Contact Label */}
@@ -23,5 +23,3 @@ function Contact() {
     </>
   );
 }
-
-export default Contact;

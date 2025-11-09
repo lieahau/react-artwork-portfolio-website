@@ -12,7 +12,7 @@ const categories = [
   'Concept Art',
 ];
 
-function CategoryNavbar() {
+export default function CategoryNavbar() {
   const [activeCategory, setActiveCategory] = useState('All');
 
   return (
@@ -43,7 +43,12 @@ function CategoryNavbar() {
             text-black dark:text-white
             ${
               activeCategory === cat
-                ? 'font-bold after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-blue-500 dark:after:bg-white'
+                ? `
+                    font-bold
+                    after:absolute after:left-0 after:bottom-0
+                    after:w-full after:h-[2px]
+                    after:bg-blue-500 dark:after:bg-white
+                  `
                 : 'hover:opacity-75'
             }
           `}
@@ -54,5 +59,3 @@ function CategoryNavbar() {
     </nav>
   );
 }
-
-export default CategoryNavbar;

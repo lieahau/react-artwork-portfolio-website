@@ -5,7 +5,10 @@ interface CardContainerProps {
   size?: 'normal' | 'large';
 }
 
-function CardContainer({ children, size = 'normal' }: CardContainerProps) {
+export default function CardContainer({
+  children,
+  size = 'normal',
+}: CardContainerProps) {
   const sizeClasses = size === 'large' ? 'max-w-2xl' : 'max-w-3xl';
 
   return (
@@ -22,5 +25,3 @@ function CardContainer({ children, size = 'normal' }: CardContainerProps) {
     </div>
   );
 }
-
-export default CardContainer;

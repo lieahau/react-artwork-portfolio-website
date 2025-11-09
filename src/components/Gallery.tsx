@@ -110,7 +110,12 @@ export default function Gallery() {
         <button
           onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
           disabled={currentPage === 1}
-          className='text-lg font-medium disabled:opacity-40 hover:scale-110 transition-transform text-black dark:text-white'
+          className='
+            text-lg font-medium
+            disabled:opacity-40
+            hover:scale-110 transition-transform
+            text-black dark:text-white
+          '
         >
           &lt;
         </button>
@@ -124,7 +129,12 @@ export default function Gallery() {
             handlePageChange(Math.min(currentPage + 1, totalPages))
           }
           disabled={currentPage === totalPages}
-          className='text-lg font-medium disabled:opacity-40 hover:scale-110 transition-transform text-black dark:text-white'
+          className='
+            text-lg font-medium
+            disabled:opacity-40
+            hover:scale-110 transition-transform
+            text-black dark:text-white
+          '
         >
           &gt;
         </button>

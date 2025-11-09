@@ -8,7 +8,7 @@ interface HomeProps {
   onNavigate: () => void;
 }
 
-function Home({ onNavigate }: HomeProps) {
+export default function Home({ onNavigate }: HomeProps) {
   return (
     <motion.div
       layout
@@ -32,5 +32,3 @@ function Home({ onNavigate }: HomeProps) {
     </motion.div>
   );
 }
-
-export default Home;

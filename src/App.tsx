@@ -4,7 +4,7 @@ import CardContainer from './components/CardContainer';
 import Home from './pages/Home';
 import Artworks from './pages/Artworks';
 
-function App() {
+export default function App() {
   const [page, setPage] = useState('home');
 
   return (
@@ -20,5 +20,3 @@ function App() {
     </CardContainer>
   );
 }
-
-export default App;

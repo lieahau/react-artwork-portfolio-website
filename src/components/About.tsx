@@ -1,4 +1,4 @@
-function About() {
+export default function About() {
   return (
     <>
       <p className='uppercase tracking-widest text-sm md:text-base font-semibold text-gray-500 dark:text-white'>
@@ -14,5 +14,3 @@ function About() {
     </>
   );
 }
-
-export default About;

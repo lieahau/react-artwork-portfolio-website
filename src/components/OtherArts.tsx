@@ -1,6 +1,6 @@
 import { FaPatreon, FaHeart } from 'react-icons/fa';
 
-function OtherArts() {
+export default function OtherArts() {
   return (
     <div className='flex flex-col items-center justify-center text-center gap-2 py-4 w-full'>
       <p className='text-sm md:text-base font-bold uppercase text-black dark:text-white'>
@@ -17,5 +17,3 @@ function OtherArts() {
     </div>
   );
 }
-
-export default OtherArts;
