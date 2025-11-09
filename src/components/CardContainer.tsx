@@ -9,7 +9,7 @@ function CardContainer({ children, size = 'normal' }: CardContainerProps) {
   const sizeClasses = size === 'large' ? 'max-w-2xl' : 'max-w-3xl';
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className='flex items-center justify-center h-screen'>
       <motion.div
         layout
         transition={{

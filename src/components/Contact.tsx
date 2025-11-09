@@ -4,19 +4,19 @@ function Contact() {
   return (
     <>
       {/* Contact Label */}
-      <h2 className="text-base md:text-lg font-bold uppercase text-black dark:text-white">
+      <h2 className='text-base md:text-lg font-bold uppercase text-black dark:text-white'>
         Contact Me!
       </h2>
 
       {/* Social Media */}
-      <div className="flex space-x-5 text-gray-600 text-xl">
-        <a href="#" target="blank" className="hover:text-black">
+      <div className='flex space-x-5 text-gray-600 text-xl'>
+        <a href='#' target='blank' className='hover:text-black'>
           <FaInstagram />
         </a>
-        <a href="#" target="blank" className="hover:text-black">
+        <a href='#' target='blank' className='hover:text-black'>
           <FaDiscord />
         </a>
-        <a href="#" target="blank" className="hover:text-black">
+        <a href='#' target='blank' className='hover:text-black'>
           <FaFacebook />
         </a>
       </div>

@@ -17,7 +17,7 @@ function CategoryNavbar() {
 
   return (
     <nav
-      className="
+      className='
         flex md:flex-col 
         overflow-x-auto md:overflow-y-auto
         gap-2 md:gap-1
@@ -26,7 +26,7 @@ function CategoryNavbar() {
         px-2 md:px-0 md:py-2
         md:max-h-[35vh]
         scrollbar
-      "
+      '
     >
       {categories.map(cat => (
         <button

@@ -60,31 +60,31 @@ export default function Gallery() {
   };
 
   return (
-    <div className="flex flex-col h-full p-0 overflow-hidden">
+    <div className='flex flex-col h-full p-0 overflow-hidden'>
       {/* Grid */}
-      <div className="relative flex-grow overflow-hidden">
-        <AnimatePresence mode="wait" custom={direction}>
+      <div className='relative flex-grow overflow-hidden'>
+        <AnimatePresence mode='wait' custom={direction}>
           <motion.div
             key={currentPage}
             custom={direction}
             variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
+            initial='enter'
+            animate='center'
+            exit='exit'
             transition={{ duration: 0.75, ease: 'easeInOut' }}
-            className="
+            className='
               grid
               gap-3
               w-full h-full
               grid-cols-1 grid-rows-1
               md:grid-cols-3 md:grid-rows-3
               flex items-center justify-center
-            "
+            '
           >
             {currentItems.map((src, index) => (
               <div
                 key={index}
-                className="
+                className='
                   w-full h-full
                   overflow-hidden
                   aspect-square rounded-lg
@@ -92,12 +92,12 @@ export default function Gallery() {
                   mx-auto
                   max-w-[85%] md:max-w-none
                   max-h-[85%] md:max-h-none
-                "
+                '
               >
                 <img
                   src={src}
                   alt={`Artwork ${index + 1}`}
-                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                  className='w-full h-full object-contain hover:scale-105 transition-transform duration-300'
                 />
               </div>
             ))}
@@ -106,23 +106,25 @@ export default function Gallery() {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center items-center mt-0 md:mt-3 space-x-4 text-gray-700">
+      <div className='flex justify-center items-center mt-0 md:mt-3 space-x-4 text-gray-700'>
         <button
           onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
           disabled={currentPage === 1}
-          className="text-lg font-medium disabled:opacity-40 hover:scale-110 transition-transform text-black dark:text-white"
+          className='text-lg font-medium disabled:opacity-40 hover:scale-110 transition-transform text-black dark:text-white'
         >
           &lt;
         </button>
 
-        <span className="text-sm font-medium text-black dark:text-white">
+        <span className='text-sm font-medium text-black dark:text-white'>
           {currentPage} / {totalPages}
         </span>
 
         <button
-          onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
+          onClick={() =>
+            handlePageChange(Math.min(currentPage + 1, totalPages))
+          }
           disabled={currentPage === totalPages}
-          className="text-lg font-medium disabled:opacity-40 hover:scale-110 transition-transform text-black dark:text-white"
+          className='text-lg font-medium disabled:opacity-40 hover:scale-110 transition-transform text-black dark:text-white'
         >
           &gt;
         </button>
