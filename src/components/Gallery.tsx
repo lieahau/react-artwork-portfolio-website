@@ -78,12 +78,21 @@ export default function Gallery() {
               w-full h-full
               grid-cols-1 grid-rows-1
               md:grid-cols-3 md:grid-rows-3
+              flex items-center justify-center
             "
           >
             {currentItems.map((src, index) => (
               <div
                 key={index}
-                className="w-full h-full aspect-square overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-500"
+                className="
+                  w-full h-full
+                  overflow-hidden
+                  aspect-square rounded-lg
+                  bg-gray-100 dark:bg-gray-500
+                  mx-auto
+                  max-w-[85%] md:max-w-none
+                  max-h-[85%] md:max-h-none
+                "
               >
                 <img
                   src={src}
@@ -97,7 +106,7 @@ export default function Gallery() {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center items-center mt-3 space-x-4 text-gray-700">
+      <div className="flex justify-center items-center mt-0 md:mt-3 space-x-4 text-gray-700">
         <button
           onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
           disabled={currentPage === 1}

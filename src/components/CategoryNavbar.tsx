@@ -36,6 +36,7 @@ function CategoryNavbar() {
             transition-all duration-200
             relative
             pb-1
+            mb-1 md:mb-0
             whitespace-nowrap
             md:text-left
             text-sm md:text-lg

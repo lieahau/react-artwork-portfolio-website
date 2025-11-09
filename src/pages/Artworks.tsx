@@ -20,7 +20,7 @@ export default function Artworks({ onBack }: ArtworksProps) {
     >
       {/* Left Column */}
       <div className="flex flex-col justify-between">
-        <div>
+        <div className="mb-4 md:mb-0">
           <BackButton onBack={onBack} />
         </div>
         <div>
