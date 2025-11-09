@@ -20,6 +20,7 @@ export default function Gallery() {
   const [itemsPerPage, setItemsPerPage] = useState(9);
   const [direction, setDirection] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [popupDirection, setPopupDirection] = useState(0);
 
   // Detect screen size and adjust items per page
   useEffect(() => {
@@ -165,23 +166,36 @@ export default function Gallery() {
             onClick={closePopup}
           >
             <div className='relative w-[90%] md:w-[70%]'>
-              <img
-                src={artworks[selectedIndex]}
-                alt='Selected artwork'
-                className='w-full h-auto max-h-[85vh] object-contain rounded-lg'
-                onClick={e => e.stopPropagation()}
-              />
+              <AnimatePresence
+                mode='wait'
+                initial={false}
+                custom={selectedIndex}
+              >
+                <motion.img
+                  key={selectedIndex}
+                  src={artworks[selectedIndex]}
+                  alt='Selected artwork'
+                  className='w-full h-auto max-h-[85vh] object-contain rounded-lg'
+                  onClick={e => e.stopPropagation()}
+                  custom={popupDirection}
+                  initial={{ x: popupDirection > 0 ? 100 : -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: popupDirection > 0 ? -100 : 100, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                />
+              </AnimatePresence>
 
               <button
                 onClick={e => {
                   e.stopPropagation();
+                  setPopupDirection(-1);
                   handlePrevImage();
                 }}
                 className='
                   absolute left-0 md:left-[-3rem] top-1/2 -translate-y-1/2
                   text-white text-3xl md:text-4xl font-bold
                   opacity-50 md:opacity-100
-                  hover:scale-120 transition-transform
+                  hover:scale-120 transition-all duration-200
                   select-none
                 '
               >
@@ -191,13 +205,14 @@ export default function Gallery() {
               <button
                 onClick={e => {
                   e.stopPropagation();
+                  setPopupDirection(1);
                   handleNextImage();
                 }}
                 className='
                   absolute right-0 md:right-[-3rem] top-1/2 -translate-y-1/2
                   text-white text-3xl md:text-4xl font-bold
                   opacity-50 md:opacity-100
-                  hover:scale-120 transition-transform
+                  hover:scale-120 transition-all duration-200
                   select-none
                 '
               >
