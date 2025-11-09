@@ -25,6 +25,7 @@ function CategoryNavbar() {
         justify-start md:justify-center-safe
         px-2 md:px-0 md:py-2
         md:max-h-[35vh]
+        scrollbar
       "
     >
       {categories.map(cat => (

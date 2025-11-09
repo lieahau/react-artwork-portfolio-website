@@ -9,3 +9,45 @@ body {
   padding: 0;
   background-color: black;
 }
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #e0cbcb;
+    border-radius: 100vh;
+    border: 2px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c0a0a0;
+  }
+
+  .dark .scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .dark .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #2d3748;
+  }
+
+  .dark .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #718096;
+    border-radius: 100vh;
+    border: 2px solid #2d3748;
+  }
+
+  .dark .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #8d8d8d;
+  }
+}
