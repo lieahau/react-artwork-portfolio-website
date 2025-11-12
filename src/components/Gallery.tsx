@@ -15,27 +15,36 @@ const artworks = [
   '/uploads/artwork1.png',
 ];
 
+const getInitialItemsPerPage = () => (window.innerWidth < 768 ? 1 : 9);
+
 export default function Gallery() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(9);
+  const [itemsPerPage, setItemsPerPage] = useState(getInitialItemsPerPage);
   const [direction, setDirection] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [popupDirection, setPopupDirection] = useState(0);
 
-  // Detect screen size and adjust items per page
   useEffect(() => {
+    let lastMode = window.innerWidth < 768 ? 'mobile' : 'desktop';
+    let frame: number | null = null;
+
     const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setItemsPerPage(1); // mobile: 1 image per page
-      } else {
-        setItemsPerPage(9); // desktop: 9 images per page
-      }
-      setCurrentPage(1); // reset to first page when layout changes
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const currentMode = window.innerWidth < 768 ? 'mobile' : 'desktop';
+        if (currentMode !== lastMode) {
+          setItemsPerPage(currentMode === 'mobile' ? 1 : 9);
+          setCurrentPage(1);
+          lastMode = currentMode;
+        }
+      });
     };
 
-    handleResize(); // run on mount
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const totalPages = Math.ceil(artworks.length / itemsPerPage);
