@@ -1,29 +1,22 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const artworks = [
-  '/uploads/artwork1.png',
-  '/uploads/artwork1.png',
-  '/uploads/artwork1.png',
-  '/uploads/artwork1.png',
-  '/uploads/artwork1.png',
-  '/uploads/artwork1.png',
-  '/uploads/artwork1.png',
-  '/uploads/artwork1.png',
-  '/uploads/artwork1.png',
-  '/uploads/artwork1.png',
-  '/uploads/artwork1.png',
-];
+import type { Category } from '../types/category';
+import { artworks } from '../types/artwork';
 
 const getInitialItemsPerPage = () => (window.innerWidth < 768 ? 1 : 9);
 
-export default function Gallery() {
+interface GalleryProps {
+  activeCategory: Category;
+}
+
+export default function Gallery({ activeCategory }: GalleryProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(getInitialItemsPerPage);
   const [direction, setDirection] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [popupDirection, setPopupDirection] = useState(0);
 
+  // Resize logic
   useEffect(() => {
     let lastMode = window.innerWidth < 768 ? 'mobile' : 'desktop';
     let frame: number | null = null;
@@ -47,19 +40,54 @@ export default function Gallery() {
     };
   }, []);
 
-  const totalPages = Math.ceil(artworks.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = artworks.slice(startIndex, startIndex + itemsPerPage);
+  // Reset when category changes
+  useEffect(() => {
+    setCurrentPage(1);
+    setSelectedIndex(null);
+    setDirection(0);
+  }, [activeCategory]);
 
-  // Motion variants for slide transition
-  const variants = {
+  // Filter by category
+  const filteredArtworks =
+    activeCategory === 'All'
+      ? artworks
+      : artworks.filter(a => a.category === activeCategory);
+
+  const totalPages = Math.ceil(filteredArtworks.length / itemsPerPage) || 1;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = filteredArtworks.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
+
+  // Category-level pop animation (outer wrapper)
+  const categoryVariants = {
+    initial: {
+      scale: 0,
+      opacity: 0,
+    },
+    animate: {
+      scale: 1,
+      opacity: 1,
+    },
+    exit: {
+      scale: 0,
+      opacity: 0,
+    },
+  };
+
+  // Page-level slide animation (inner grid)
+  const pageVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 80 : -80,
+      x: direction > 0 ? -80 : direction < 0 ? 80 : 0,
       opacity: 0,
     }),
-    center: { x: 0, opacity: 1 },
+    center: {
+      x: 0,
+      opacity: 1,
+    },
     exit: (direction: number) => ({
-      x: direction > 0 ? -80 : 80,
+      x: direction > 0 ? 80 : direction < 0 ? -80 : 0,
       opacity: 0,
     }),
   };
@@ -71,61 +99,83 @@ export default function Gallery() {
   };
 
   const handleNextImage = () => {
-    if (selectedIndex === null) return;
-    setSelectedIndex((selectedIndex + 1) % artworks.length);
+    if (selectedIndex === null || filteredArtworks.length === 0) return;
+    setSelectedIndex((selectedIndex + 1) % filteredArtworks.length);
   };
 
   const handlePrevImage = () => {
-    if (selectedIndex === null) return;
-    setSelectedIndex((selectedIndex - 1 + artworks.length) % artworks.length);
+    if (selectedIndex === null || filteredArtworks.length === 0) return;
+    setSelectedIndex(
+      (selectedIndex - 1 + filteredArtworks.length) % filteredArtworks.length
+    );
   };
 
   const closePopup = () => setSelectedIndex(null);
 
   return (
-    <div className='flex flex-col h-full p-0 overflow-hidden'>
+    <div className='flex flex-col h-full p-0 overflow-hidden min-h-[40vh] md:min-h-[67vh]'>
       {/* Grid */}
       <div className='relative flex-grow overflow-hidden'>
-        <AnimatePresence mode='wait' custom={direction}>
+        {/* Outer: category change (pop) */}
+        <AnimatePresence mode='wait'>
           <motion.div
-            key={currentPage}
-            custom={direction}
-            variants={variants}
-            initial='enter'
-            animate='center'
+            key={activeCategory}
+            variants={categoryVariants}
+            initial='initial'
+            animate='animate'
             exit='exit'
-            transition={{ duration: 0.75, ease: 'easeInOut' }}
-            className='
-              grid
-              gap-3
-              w-full h-full
-              grid-cols-1 grid-rows-1
-              md:grid-cols-3 md:grid-rows-3
-              flex items-center justify-center
-            '
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className='w-full h-full'
           >
-            {currentItems.map((src, index) => (
-              <div
-                key={index}
-                onClick={() => setSelectedIndex(startIndex + index)}
+            {/* Inner: page change (slide) */}
+            <AnimatePresence mode='wait' custom={direction}>
+              <motion.div
+                key={currentPage}
+                custom={direction}
+                variants={pageVariants}
+                initial='enter'
+                animate='center'
+                exit='exit'
+                transition={{ duration: 0.75, ease: 'easeInOut' }}
                 className='
+                  grid
+                  gap-3
                   w-full h-full
-                  overflow-hidden
-                  aspect-square rounded-lg
-                  bg-gray-100 dark:bg-gray-500
-                  mx-auto
-                  cursor-pointer
-                  max-w-[85%] md:max-w-none
-                  max-h-[85%] md:max-h-none
+                  grid-cols-1 grid-rows-1
+                  md:grid-cols-3 md:grid-rows-3
+                  flex items-center justify-center
                 '
               >
-                <img
-                  src={src}
-                  alt={`Artwork ${index + 1}`}
-                  className='w-full h-full object-contain hover:scale-105 transition-transform duration-300'
-                />
-              </div>
-            ))}
+                {currentItems.length > 0 ? (
+                  currentItems.map((art, index) => (
+                    <div
+                      key={startIndex + index}
+                      onClick={() => setSelectedIndex(startIndex + index)}
+                      className='
+                        w-full h-full
+                        overflow-hidden
+                        aspect-square rounded-lg
+                        bg-gray-100 dark:bg-gray-500
+                        mx-auto
+                        cursor-pointer
+                        max-w-[85%] md:max-w-none
+                        max-h-[85%] md:max-h-none
+                      '
+                    >
+                      <img
+                        src={art.src}
+                        alt={`Artwork ${startIndex + index + 1}`}
+                        className='w-full h-full object-contain hover:scale-105 transition-transform duration-300'
+                      />
+                    </div>
+                  ))
+                ) : (
+                  <div className='col-span-1 md:col-span-3 text-center text-gray-500 dark:text-gray-300'>
+                    No artworks in this category yet.
+                  </div>
+                )}
+              </motion.div>
+            </AnimatePresence>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -165,8 +215,9 @@ export default function Gallery() {
         </button>
       </div>
 
+      {/* Popup */}
       <AnimatePresence>
-        {selectedIndex !== null && (
+        {selectedIndex !== null && filteredArtworks[selectedIndex] && (
           <motion.div
             className='fixed inset-0 bg-black/70 flex items-center justify-center z-50'
             initial={{ opacity: 0 }}
@@ -182,15 +233,21 @@ export default function Gallery() {
               >
                 <motion.img
                   key={selectedIndex}
-                  src={artworks[selectedIndex]}
+                  src={filteredArtworks[selectedIndex].src}
                   alt='Selected artwork'
                   className='w-full h-auto max-h-[85vh] object-contain rounded-lg'
                   onClick={e => e.stopPropagation()}
                   custom={popupDirection}
-                  initial={{ x: popupDirection > 0 ? 100 : -100, opacity: 0 }}
+                  initial={{
+                    x: popupDirection > 0 ? -100 : 100,
+                    opacity: 0,
+                  }}
                   animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: popupDirection > 0 ? -100 : 100, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  exit={{
+                    x: popupDirection > 0 ? 100 : -100,
+                    opacity: 0,
+                  }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
                 />
               </AnimatePresence>
 

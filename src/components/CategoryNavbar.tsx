@@ -1,20 +1,14 @@
-import { useState } from 'react';
+import { categories, type Category } from '../types/category';
 
-const categories = [
-  'All',
-  'Digital',
-  'Traditional',
-  'Photography',
-  'Sculpture',
-  'Doodles',
-  '3D',
-  'Animation',
-  'Concept Art',
-];
+interface CategoryNavbarProps {
+  activeCategory: Category;
+  onChangeCategory: (category: Category) => void;
+}
 
-export default function CategoryNavbar() {
-  const [activeCategory, setActiveCategory] = useState('All');
-
+export default function CategoryNavbar({
+  activeCategory,
+  onChangeCategory,
+}: CategoryNavbarProps) {
   return (
     <nav
       className='
@@ -31,7 +25,7 @@ export default function CategoryNavbar() {
       {categories.map(cat => (
         <button
           key={cat}
-          onClick={() => setActiveCategory(cat)}
+          onClick={() => onChangeCategory(cat)}
           className={`
             transition-all duration-200
             relative
