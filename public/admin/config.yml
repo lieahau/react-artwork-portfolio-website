@@ -1,18 +1,67 @@
 backend:
   name: test-repo
-  branch: main
+#  name: git-gateway
+#  branch: main
 
-media_folder: 'public/uploads'
-public_folder: '/uploads'
+local_backend: true
+
+media_folder: 'public/uploads' # where uploaded files are stored in the repo
+public_folder: '/uploads' # how those files are served in the site
 
 collections:
-  - name: 'artworks'
-    label: 'Artworks'
-    folder: 'src/content/artworks'
-    create: true
-    slug: '{{slug}}'
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Category', name: 'category', widget: 'string' }
+  - name: 'home'
+    label: 'Home Page'
+    files:
+      - label: 'Home Content'
+        name: 'home'
+        file: 'src/content/home.json'
+        format: 'json'
+        fields:
+          - { label: 'Role', name: 'role', widget: 'string' }
+          - { label: 'Name', name: 'name', widget: 'string' }
+          - { label: 'Bio', name: 'bio', widget: 'text' }
+          - {
+              label: 'Artwork Button Text',
+              name: 'artworksButtonText',
+              widget: 'string',
+            }
+          - {
+              label: 'Profile Picture',
+              name: 'profilePicture',
+              widget: 'image',
+            }
+          - {
+              label: 'Contact Me Text',
+              name: 'contactMeText',
+              widget: 'string',
+            }
+
+          - label: 'Contact Links'
+            name: 'contacts'
+            widget: 'list'
+            summary: '{{fields.label}}'
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string' }
+              - { label: 'URL', name: 'url', widget: 'string' }
+              - label: 'Platform (for default icon)'
+                name: 'platform'
+                widget: 'select'
+                options:
+                  - { label: 'Instagram', value: 'instagram' }
+                  - { label: 'Facebook', value: 'facebook' }
+                  - { label: 'Discord', value: 'discord' }
+                  - { label: 'YouTube', value: 'youtube' }
+                  - { label: 'Twitter/X', value: 'twitter' }
+                  - { label: 'Telegram', value: 'telegram' }
+                  - { label: 'Email', value: 'email' }
+                  - { label: 'Website', value: 'website' }
+                  - { label: 'Other / Custom', value: 'other' }
+              - label: 'Use custom icon image?'
+                name: 'useCustomIcon'
+                widget: 'boolean'
+                default: false
+              - label: 'Custom Icon Image'
+                name: 'customIconImage'
+                widget: 'image'
+                required: false
+                hint: 'Upload if you want to override the default icon (e.g. for YouTube, Telegram, Patreon, etc).'

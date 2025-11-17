@@ -1,0 +1,31 @@
+{
+  "role": "Artist",
+  "name": "John Doe",
+  "bio": "I’m a multidisciplinary artist passionate about exploring emotion and storytelling through color, texture, and digital expression.",
+  "artworksButtonText": "My Artworks",
+  "profilePicture": "/uploads/profilepicture.jpg",
+  "contactMeText": "Contact Me!",
+  "contacts": [
+    {
+      "label": "Instagram",
+      "url": "https://google.com",
+      "platform": "facebook",
+      "useCustomIcon": false,
+      "customIconImage": ""
+    },
+    {
+      "label": "Discord",
+      "url": "https://google.com",
+      "platform": "discord",
+      "useCustomIcon": false,
+      "customIconImage": ""
+    },
+    {
+      "label": "Facebook",
+      "url": "https://google.com",
+      "platform": "facebook",
+      "useCustomIcon": false,
+      "customIconImage": ""
+    }
+  ]
+}

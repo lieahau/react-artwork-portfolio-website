@@ -2,9 +2,13 @@ import { motion } from 'framer-motion';
 
 interface ArtworksButtonProps {
   onNavigate: () => void;
+  label: string;
 }
 
-export default function ArtworksButton({ onNavigate }: ArtworksButtonProps) {
+export default function ArtworksButton({
+  onNavigate,
+  label,
+}: ArtworksButtonProps) {
   return (
     <motion.button
       whileHover={{ scale: 1.05 }}
@@ -20,7 +24,7 @@ export default function ArtworksButton({ onNavigate }: ArtworksButtonProps) {
         bg-black
       '
     >
-      My Artworks
+      {label}
     </motion.button>
   );
 }

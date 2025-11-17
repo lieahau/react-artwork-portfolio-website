@@ -3,12 +3,24 @@ import About from '../components/About';
 import ArtworksButton from '../components/ArtworksButton';
 import ProfilePicture from '../components/ProfilePicture';
 import Contact from '../components/Contact';
+import homeContent from '../content/home.json';
+import type { HomeContent } from '../types/interface';
 
 interface HomeProps {
   onNavigate: () => void;
 }
 
 export default function Home({ onNavigate }: HomeProps) {
+  const {
+    role,
+    name,
+    bio,
+    artworksButtonText,
+    profilePicture,
+    contactMeText,
+    contacts,
+  } = homeContent as HomeContent;
+
   return (
     <motion.div
       layout
@@ -20,14 +32,14 @@ export default function Home({ onNavigate }: HomeProps) {
     >
       {/* Left Column */}
       <div className='text-center md:text-left space-y-3 px-1 md:px-3'>
-        <About />
-        <ArtworksButton onNavigate={onNavigate} />
+        <About role={role} name={name} bio={bio} />
+        <ArtworksButton onNavigate={onNavigate} label={artworksButtonText} />
       </div>
 
       {/* Right Column */}
       <div className='flex flex-col items-center space-y-3 px-1 md:px-3'>
-        <ProfilePicture />
-        <Contact />
+        <ProfilePicture src={profilePicture} />
+        <Contact title={contactMeText} contacts={contacts} />
       </div>
     </motion.div>
   );
