@@ -5,6 +5,8 @@ import CategoryNavbar from '../components/CategoryNavbar';
 import Gallery from '../components/Gallery';
 import { useState } from 'react';
 import type { Category } from '../types/category';
+import artworksContent from '../content/artworks.json';
+import type { ArtworksContent } from '../types/interface';
 
 interface ArtworksProps {
   onBack: () => void;
@@ -12,6 +14,8 @@ interface ArtworksProps {
 
 export default function Artworks({ onBack }: ArtworksProps) {
   const [activeCategory, setActiveCategory] = useState<Category>('All');
+  const { backButtonText, viewMoreText, viewMoreLinks } =
+    artworksContent as ArtworksContent;
 
   return (
     <motion.div
@@ -29,7 +33,7 @@ export default function Artworks({ onBack }: ArtworksProps) {
       {/* Left Column */}
       <div className='flex flex-col justify-between'>
         <div className='mb-4 md:mb-0'>
-          <BackButton onBack={onBack} />
+          <BackButton onBack={onBack} label={backButtonText} />
         </div>
 
         <div>
@@ -40,7 +44,7 @@ export default function Artworks({ onBack }: ArtworksProps) {
         </div>
 
         <div className='hidden md:block'>
-          <OtherArts />
+          <OtherArts text={viewMoreText} links={viewMoreLinks} />
         </div>
       </div>
 
@@ -48,7 +52,7 @@ export default function Artworks({ onBack }: ArtworksProps) {
       <div className='flex flex-col overflow-hidden gap-2 md:gap-0'>
         <Gallery activeCategory={activeCategory} />
         <div className='block md:hidden'>
-          <OtherArts />
+          <OtherArts text={viewMoreText} links={viewMoreLinks} />
         </div>
       </div>
     </motion.div>

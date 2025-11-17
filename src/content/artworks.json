@@ -1,0 +1,20 @@
+{
+  "backButtonText": "Back",
+  "viewMoreText": "View More Arts!",
+  "viewMoreLinks": [
+    {
+      "label": "Patreon",
+      "url": "https:google.com",
+      "platform": "patreon",
+      "useCustomIcon": false,
+      "customIconImage": ""
+    },
+    {
+      "label": "Ko-fi",
+      "url": "https://google.com",
+      "platform": "kofi",
+      "useCustomIcon": false,
+      "customIconImage": ""
+    }
+  ]
+}

@@ -2,9 +2,10 @@ import { IoArrowBack } from 'react-icons/io5';
 
 interface BackButtonProps {
   onBack: () => void;
+  label: string;
 }
 
-export default function BackButton({ onBack }: BackButtonProps) {
+export default function BackButton({ onBack, label }: BackButtonProps) {
   return (
     <div>
       <button
@@ -17,7 +18,7 @@ export default function BackButton({ onBack }: BackButtonProps) {
         '
       >
         <IoArrowBack className='text-lg' />
-        <span className='font-medium'>Back</span>
+        <span className='font-medium'>{label}</span>
       </button>
     </div>
   );

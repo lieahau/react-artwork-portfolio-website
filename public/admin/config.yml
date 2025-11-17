@@ -64,7 +64,57 @@ collections:
                 name: 'customIconImage'
                 widget: 'image'
                 required: false
-                hint: 'Upload if you want to override the default icon (e.g. for YouTube, Telegram, Patreon, etc).'
+                hint: 'Upload if you want to override the default icon.'
+
+  - name: 'artworks'
+    label: 'Artworks Page'
+    files:
+      - label: 'Artworks Content'
+        name: 'artworks'
+        file: 'src/content/artworks.json'
+        format: 'json'
+        fields:
+          - label: 'Back Button Text'
+            name: 'backButtonText'
+            widget: 'string'
+            default: 'Back'
+          - label: 'View More Arts Text'
+            name: 'viewMoreText'
+            widget: 'string'
+            default: 'View More Arts!'
+
+          - label: 'View More Links'
+            name: 'viewMoreLinks'
+            widget: 'list'
+            summary: '{{fields.label}}'
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string' }
+              - { label: 'URL', name: 'url', widget: 'string' }
+              - label: 'Platform (for default icon)'
+                name: 'platform'
+                widget: 'select'
+                options:
+                  - { label: 'Patreon', value: 'patreon' }
+                  - { label: 'Ko-fi', value: 'kofi' }
+                  - { label: 'Gumroad', value: 'gumroad' }
+                  - { label: 'ArtStation', value: 'artstation' }
+                  - { label: 'DeviantArt', value: 'deviantart' }
+                  - { label: 'Behance', value: 'behance' }
+                  - { label: 'Pixiv', value: 'pixiv' }
+                  - { label: 'Instagram', value: 'instagram' }
+                  - { label: 'Twitter/X', value: 'twitter' }
+                  - { label: 'YouTube', value: 'youtube' }
+                  - { label: 'Website', value: 'website' }
+                  - { label: 'Other / Custom', value: 'other' }
+              - label: 'Use custom icon image?'
+                name: 'useCustomIcon'
+                widget: 'boolean'
+                default: false
+              - label: 'Custom Icon Image'
+                name: 'customIconImage'
+                widget: 'image'
+                required: false
+                hint: 'Upload if you want to override the default icon.'
 
   - name: 'settings'
     label: 'Site Settings'
