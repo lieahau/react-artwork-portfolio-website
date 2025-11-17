@@ -51,10 +51,18 @@ collections:
                   - { label: 'Facebook', value: 'facebook' }
                   - { label: 'Discord', value: 'discord' }
                   - { label: 'YouTube', value: 'youtube' }
+                  - { label: 'Twitch', value: 'twitch' }
                   - { label: 'Twitter/X', value: 'twitter' }
                   - { label: 'Telegram', value: 'telegram' }
                   - { label: 'Email', value: 'email' }
                   - { label: 'Website', value: 'website' }
+                  - { label: 'Patreon', value: 'patreon' }
+                  - { label: 'Ko-fi', value: 'kofi' }
+                  - { label: 'Gumroad', value: 'gumroad' }
+                  - { label: 'ArtStation', value: 'artstation' }
+                  - { label: 'DeviantArt', value: 'deviantart' }
+                  - { label: 'Behance', value: 'behance' }
+                  - { label: 'Pixiv', value: 'pixiv' }
                   - { label: 'Other / Custom', value: 'other' }
               - label: 'Use custom icon image?'
                 name: 'useCustomIcon'
@@ -94,6 +102,15 @@ collections:
                 name: 'platform'
                 widget: 'select'
                 options:
+                  - { label: 'Instagram', value: 'instagram' }
+                  - { label: 'Facebook', value: 'facebook' }
+                  - { label: 'Discord', value: 'discord' }
+                  - { label: 'YouTube', value: 'youtube' }
+                  - { label: 'Twitch', value: 'twitch' }
+                  - { label: 'Twitter/X', value: 'twitter' }
+                  - { label: 'Telegram', value: 'telegram' }
+                  - { label: 'Email', value: 'email' }
+                  - { label: 'Website', value: 'website' }
                   - { label: 'Patreon', value: 'patreon' }
                   - { label: 'Ko-fi', value: 'kofi' }
                   - { label: 'Gumroad', value: 'gumroad' }
@@ -101,10 +118,6 @@ collections:
                   - { label: 'DeviantArt', value: 'deviantart' }
                   - { label: 'Behance', value: 'behance' }
                   - { label: 'Pixiv', value: 'pixiv' }
-                  - { label: 'Instagram', value: 'instagram' }
-                  - { label: 'Twitter/X', value: 'twitter' }
-                  - { label: 'YouTube', value: 'youtube' }
-                  - { label: 'Website', value: 'website' }
                   - { label: 'Other / Custom', value: 'other' }
               - label: 'Use custom icon image?'
                 name: 'useCustomIcon'
@@ -129,4 +142,4 @@ collections:
             name: 'favicon'
             widget: 'image'
             required: false
-            hint: 'Upload a square icon (e.g. 64x64 PNG).'
+            hint: 'Upload a square icon.'

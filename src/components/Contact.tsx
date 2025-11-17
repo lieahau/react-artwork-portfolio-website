@@ -1,32 +1,10 @@
-import {
-  FaInstagram,
-  FaFacebook,
-  FaDiscord,
-  FaYoutube,
-  FaTwitter,
-  FaTelegramPlane,
-  FaEnvelope,
-  FaGlobe,
-} from 'react-icons/fa';
 import type { ContactItem } from '../types/interface';
+import { platformIconMap } from '../utils/platformIcons';
 
 interface ContactProps {
   title: string;
   contacts: ContactItem[];
 }
-
-const iconMap: Partial<
-  Record<ContactItem['platform'], React.ComponentType<{ className?: string }>>
-> = {
-  instagram: FaInstagram,
-  facebook: FaFacebook,
-  discord: FaDiscord,
-  youtube: FaYoutube,
-  twitter: FaTwitter,
-  telegram: FaTelegramPlane,
-  email: FaEnvelope,
-  website: FaGlobe,
-};
 
 export default function Contact({ title, contacts }: ContactProps) {
   return (
@@ -39,10 +17,10 @@ export default function Contact({ title, contacts }: ContactProps) {
       {/* Social Media */}
       <div className='flex space-x-5 text-xl'>
         {contacts.map(contact => {
-          const IconComponent = iconMap[contact.platform];
+          const IconComponent = platformIconMap[contact.platform];
 
           const showCustomIcon =
-            contact.useCustomIcon && contact.customIconImage;
+            contact.useCustomIcon && !!contact.customIconImage;
 
           return (
             <a

@@ -1,0 +1,18 @@
+export type Platform =
+  | 'instagram'
+  | 'facebook'
+  | 'discord'
+  | 'youtube'
+  | 'twitch'
+  | 'twitter'
+  | 'telegram'
+  | 'email'
+  | 'website'
+  | 'patreon'
+  | 'kofi'
+  | 'gumroad'
+  | 'artstation'
+  | 'deviantart'
+  | 'behance'
+  | 'pixiv'
+  | 'other';

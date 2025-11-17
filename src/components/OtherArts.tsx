@@ -1,40 +1,10 @@
-import {
-  FaPatreon,
-  FaInstagram,
-  FaTwitter,
-  FaYoutube,
-  FaGlobe,
-} from 'react-icons/fa';
-import {
-  SiKofi,
-  SiGumroad,
-  SiArtstation,
-  SiDeviantart,
-  SiBehance,
-  SiPixiv,
-} from 'react-icons/si';
 import type { ViewMoreLink } from '../types/interface';
+import { platformIconMap } from '../utils/platformIcons';
 
 interface OtherArtsProps {
   text: string;
   links: ViewMoreLink[];
 }
-
-const platformIconMap: Partial<
-  Record<ViewMoreLink['platform'], React.ComponentType<{ className?: string }>>
-> = {
-  patreon: FaPatreon,
-  kofi: SiKofi,
-  gumroad: SiGumroad,
-  artstation: SiArtstation,
-  deviantart: SiDeviantart,
-  behance: SiBehance,
-  pixiv: SiPixiv,
-  instagram: FaInstagram,
-  twitter: FaTwitter,
-  youtube: FaYoutube,
-  website: FaGlobe,
-};
 
 export default function OtherArts({ text, links }: OtherArtsProps) {
   return (

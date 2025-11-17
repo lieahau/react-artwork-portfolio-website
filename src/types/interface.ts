@@ -1,3 +1,5 @@
+import type { Platform } from './platform';
+
 export interface SiteSettings {
   title?: string;
   favicon?: string;
@@ -22,7 +24,7 @@ export interface ArtworksContent {
 export interface ContactItem {
   label: string;
   url: string;
-  platform: ContactPlatform;
+  platform: Platform;
   useCustomIcon?: boolean;
   customIconImage?: string;
 }
@@ -30,32 +32,7 @@ export interface ContactItem {
 export interface ViewMoreLink {
   label: string;
   url: string;
-  platform: ViewMorePlatform;
+  platform: Platform;
   useCustomIcon?: boolean;
   customIconImage?: string;
 }
-
-type ContactPlatform =
-  | 'instagram'
-  | 'facebook'
-  | 'discord'
-  | 'youtube'
-  | 'twitter'
-  | 'telegram'
-  | 'email'
-  | 'website'
-  | 'other';
-
-type ViewMorePlatform =
-  | 'patreon'
-  | 'kofi'
-  | 'gumroad'
-  | 'artstation'
-  | 'deviantart'
-  | 'behance'
-  | 'pixiv'
-  | 'instagram'
-  | 'twitter'
-  | 'youtube'
-  | 'website'
-  | 'other';
