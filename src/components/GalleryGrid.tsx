@@ -1,0 +1,104 @@
+import { AnimatePresence, motion } from 'framer-motion';
+import type { Category } from '../types/category';
+import type { Artwork } from '../types/artwork';
+
+const categoryVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+const pageVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? -80 : direction < 0 ? 80 : 0,
+    opacity: 0,
+  }),
+  center: { x: 0, opacity: 1 },
+  exit: (direction: number) => ({
+    x: direction > 0 ? 80 : direction < 0 ? -80 : 0,
+    opacity: 0,
+  }),
+};
+
+interface GalleryGridProps {
+  activeCategory: Category;
+  currentItems: Artwork[];
+  currentPage: number;
+  direction: number;
+  startIndex: number;
+  onSelect: (filteredIndex: number) => void;
+}
+
+export function GalleryGrid({
+  activeCategory,
+  currentItems,
+  currentPage,
+  direction,
+  startIndex,
+  onSelect,
+}: GalleryGridProps) {
+  return (
+    <div className='relative flex-grow overflow-hidden'>
+      <AnimatePresence mode='wait'>
+        <motion.div
+          key={activeCategory}
+          variants={categoryVariants}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+          transition={{ duration: 0.2, ease: 'easeInOut' }}
+          className='w-full h-full'
+        >
+          <AnimatePresence mode='wait' custom={direction}>
+            <motion.div
+              key={currentPage}
+              custom={direction}
+              variants={pageVariants}
+              initial='enter'
+              animate='center'
+              exit='exit'
+              transition={{ duration: 0.75, ease: 'easeInOut' }}
+              className='
+                grid
+                gap-3
+                w-full h-full
+                grid-cols-1 grid-rows-1
+                md:grid-cols-3 md:grid-rows-3
+                flex items-center justify-center
+              '
+            >
+              {currentItems.length > 0 ? (
+                currentItems.map((art, index) => (
+                  <div
+                    key={startIndex + index}
+                    onClick={() => onSelect(startIndex + index)}
+                    className='
+                      w-full h-full
+                      overflow-hidden
+                      aspect-square rounded-lg
+                      bg-gray-100 dark:bg-gray-500
+                      mx-auto
+                      cursor-pointer
+                      max-w-[85%] md:max-w-none
+                      max-h-[85%] md:max-h-none
+                    '
+                  >
+                    <img
+                      src={art.src}
+                      alt={`Artwork ${startIndex + index + 1}`}
+                      className='w-full h-full object-contain hover:scale-105 transition-transform duration-300'
+                    />
+                  </div>
+                ))
+              ) : (
+                <div className='col-span-1 md:col-span-3 text-center text-gray-500 dark:text-gray-300'>
+                  No artworks in this category yet.
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}

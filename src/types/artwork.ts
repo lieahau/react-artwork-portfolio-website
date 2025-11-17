@@ -1,6 +1,6 @@
 import type { Category } from './category';
 
-interface Artwork {
+export interface Artwork {
   src: string;
   category: Exclude<Category, 'All'>; // All is virtual
 }
