@@ -65,3 +65,18 @@ collections:
                 widget: 'image'
                 required: false
                 hint: 'Upload if you want to override the default icon (e.g. for YouTube, Telegram, Patreon, etc).'
+
+  - name: 'settings'
+    label: 'Site Settings'
+    files:
+      - label: 'General Settings'
+        name: 'general'
+        file: 'src/content/site.json'
+        format: 'json'
+        fields:
+          - { label: 'Site Title', name: 'title', widget: 'string' }
+          - label: 'Favicon'
+            name: 'favicon'
+            widget: 'image'
+            required: false
+            hint: 'Upload a square icon (e.g. 64x64 PNG).'

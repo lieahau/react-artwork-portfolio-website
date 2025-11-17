@@ -1,3 +1,8 @@
+export interface SiteSettings {
+  title?: string;
+  favicon?: string;
+}
+
 export interface HomeContent {
   role: string;
   name: string;
