@@ -149,8 +149,9 @@ collections:
           - label: 'Gallery'
             name: 'gallery'
             widget: 'list'
-            summary: '{{fields.src}} ({{fields.category}})'
+            summary: '{{fields.name}} - {{fields.category}} - {{fields.src}}'
             fields:
+              - { label: 'Artwork Name', name: 'name', widget: 'string' }
               - { label: 'Image', name: 'src', widget: 'image' }
               - label: 'Category'
                 name: 'category'

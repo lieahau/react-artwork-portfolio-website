@@ -84,7 +84,7 @@ export function GalleryGrid({
                   >
                     <img
                       src={art.src}
-                      alt={`Artwork ${startIndex + index + 1}`}
+                      alt={art.name || `Artwork ${startIndex + index + 1}`}
                       className='w-full h-full object-contain hover:scale-105 transition-transform duration-300'
                     />
                   </div>

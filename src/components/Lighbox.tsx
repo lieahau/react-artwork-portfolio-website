@@ -38,7 +38,7 @@ export function Lightbox({
               <motion.img
                 key={selectedIndex}
                 src={selected.src}
-                alt='Selected artwork'
+                alt={selected.name || `Artwork ${selectedIndex}`}
                 className='w-full h-auto max-h-[85vh] object-contain rounded-lg'
                 onClick={e => e.stopPropagation()}
                 custom={popupDirection}

@@ -40,6 +40,7 @@ export interface ViewMoreLink {
 export type Category = 'All' | string;
 
 export interface Art {
+  name: string;
   src: string;
   category: Exclude<Category, 'All'>;
 }

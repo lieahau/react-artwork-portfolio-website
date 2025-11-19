@@ -1,94 +1,137 @@
 {
   "gallery": [
     {
+      "name": "Rei",
       "src": "/uploads/artwork1.png",
       "category": "Sketch"
     },
     {
+      "name": "Rei",
       "src": "/uploads/artwork1.png",
       "category": "Sketch"
     },
     {
+      "name": "Rei",
       "src": "/uploads/artwork1.png",
       "category": "Sketch"
     },
     {
+      "name": "Rei",
       "src": "/uploads/artwork1.png",
       "category": "Sketch"
     },
     {
+      "name": "Rei",
       "src": "/uploads/artwork1.png",
       "category": "Sketch"
     },
     {
+      "name": "Rei",
       "src": "/uploads/artwork1.png",
       "category": "Sketch"
     },
     {
+      "name": "Rei",
       "src": "/uploads/artwork1.png",
       "category": "Sketch"
     },
     {
+      "name": "Rei",
       "src": "/uploads/artwork1.png",
       "category": "Sketch"
     },
     {
+      "name": "Ganyu",
       "src": "/uploads/ganyu.png",
       "category": "Digital"
     },
     {
+      "name": "Ganyu",
       "src": "/uploads/ganyu.png",
       "category": "Digital"
     },
     {
+      "name": "Ganyu",
       "src": "/uploads/ganyu.png",
       "category": "Digital"
     },
     {
+      "name": "Ganyu",
       "src": "/uploads/ganyu.png",
       "category": "Digital"
     },
     {
+      "name": "Silverwolf",
       "src": "/uploads/silverwolf.png",
       "category": "Traditional"
     },
     {
+      "name": "Silverwolf",
       "src": "/uploads/silverwolf.png",
       "category": "Traditional"
     },
     {
+      "name": "Maki Riko",
       "src": "/uploads/makiriko.png",
       "category": "Digital"
     },
     {
+      "name": "Maki Riko",
       "src": "/uploads/makiriko.png",
       "category": "Digital"
     },
     {
+      "name": "Maki Riko",
       "src": "/uploads/makiriko.png",
       "category": "Digital"
     },
     {
+      "name": "Maki Riko",
       "src": "/uploads/makiriko.png",
       "category": "Digital"
     },
     {
+      "name": "Maki Riko",
       "src": "/uploads/makiriko.png",
       "category": "Digital"
     },
     {
+      "name": "Maki Riko",
       "src": "/uploads/makiriko.png",
       "category": "Digital"
     },
     {
+      "name": "Maki Riko",
       "src": "/uploads/makiriko.png",
       "category": "Digital"
     },
     {
+      "name": "Maki Riko",
       "src": "/uploads/makiriko.png",
       "category": "Digital"
     },
     {
+      "name": "Amber",
+      "src": "/uploads/amber.webp",
+      "category": "Traditional"
+    },
+    {
+      "name": "Amber",
+      "src": "/uploads/amber.webp",
+      "category": "Traditional"
+    },
+    {
+      "name": "Amber",
+      "src": "/uploads/amber.webp",
+      "category": "Traditional"
+    },
+    {
+      "name": "Amber",
+      "src": "/uploads/amber.webp",
+      "category": "Traditional"
+    },
+    {
+      "name": "Amber",
       "src": "/uploads/amber.webp",
       "category": "Traditional"
     },
@@ -97,47 +140,37 @@
       "category": "Traditional"
     },
     {
+      "name": "Amber",
       "src": "/uploads/amber.webp",
       "category": "Traditional"
     },
     {
-      "src": "/uploads/amber.webp",
-      "category": "Traditional"
-    },
-
-    {
+      "name": "Amber",
       "src": "/uploads/amber.webp",
       "category": "Traditional"
     },
     {
+      "name": "Amber",
       "src": "/uploads/amber.webp",
       "category": "Traditional"
     },
     {
+      "name": "Amber",
       "src": "/uploads/amber.webp",
       "category": "Traditional"
     },
     {
+      "name": "Amber",
       "src": "/uploads/amber.webp",
       "category": "Traditional"
     },
     {
+      "name": "Amber",
       "src": "/uploads/amber.webp",
       "category": "Traditional"
     },
     {
-      "src": "/uploads/amber.webp",
-      "category": "Traditional"
-    },
-    {
-      "src": "/uploads/amber.webp",
-      "category": "Traditional"
-    },
-    {
-      "src": "/uploads/amber.webp",
-      "category": "Traditional"
-    },
-    {
+      "name": "Amber",
       "src": "/uploads/amber.webp",
       "category": "Traditional"
     }
