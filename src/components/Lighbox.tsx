@@ -33,13 +33,23 @@ export function Lightbox({
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
-          <div className='relative w-[90%] md:w-[70%]'>
+          <div
+            className='
+              relative inline-flex 
+              max-h-[90vh] md:max-h-[70vh]
+              max-w-[90vw] md:max-w-[70vw]
+            '
+          >
             <AnimatePresence mode='wait' initial={false} custom={selectedIndex}>
               <motion.img
                 key={selectedIndex}
                 src={selected.src}
                 alt={selected.name || `Artwork ${selectedIndex}`}
-                className='w-full h-auto max-h-[85vh] object-contain rounded-lg'
+                className='
+                  w-auto h-auto
+                  max-h-[85vh] max-w-full
+                  object-contain rounded-lg
+                '
                 onClick={e => e.stopPropagation()}
                 custom={popupDirection}
                 initial={{
@@ -63,10 +73,11 @@ export function Lightbox({
                 onPrev();
               }}
               className='
-                absolute left-0 md:left-[-3rem] top-1/2 -translate-y-1/2
+                absolute left-0.5 md:left-[-1rem] top-1/2
+                -translate-x-full -translate-y-1/2
                 text-white text-3xl md:text-4xl font-bold
                 opacity-50 md:opacity-100
-                hover:scale-120 transition-all duration-200
+                hover:scale-120 transition-transform duration-200
                 select-none
               '
             >
@@ -81,10 +92,11 @@ export function Lightbox({
                 onNext();
               }}
               className='
-                absolute right-0 md:right-[-3rem] top-1/2 -translate-y-1/2
+                absolute right-0.5 md:right-[-1rem] top-1/2
+                translate-x-full -translate-y-1/2
                 text-white text-3xl md:text-4xl font-bold
                 opacity-50 md:opacity-100
-                hover:scale-120 transition-all duration-200
+                hover:scale-120 transition-transform duration-200
                 select-none
               '
             >
@@ -98,7 +110,7 @@ export function Lightbox({
                 onClose();
               }}
               className='
-                absolute top-[-1rem] right-[-0.5rem]
+                absolute -top-4 -right-4
                 text-white text-xl md:text-2xl font-bold
                 opacity-50 md:opacity-100
                 hover:scale-120 transition-transform
