@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import type { Category } from '../types/category';
-import type { Artwork } from '../types/artwork';
+import type { Art, Category } from '../types/interface';
 
 const categoryVariants = {
   initial: { opacity: 0 },
@@ -22,7 +21,7 @@ const pageVariants = {
 
 interface GalleryGridProps {
   activeCategory: Category;
-  currentItems: Artwork[];
+  currentItems: Art[];
   currentPage: number;
   direction: number;
   startIndex: number;

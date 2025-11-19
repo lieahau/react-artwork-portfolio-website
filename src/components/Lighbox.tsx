@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import type { Artwork } from '../types/artwork';
+import type { Art } from '../types/interface';
 
 interface LightboxProps {
-  items: Artwork[];
+  items: Art[];
   selectedIndex: number | null;
   onClose: () => void;
   onNext: () => void;
