@@ -35,7 +35,6 @@ export default function CategoryNavbar({
             whitespace-nowrap
             md:text-left
             text-sm md:text-lg
-            text-black dark:text-white
             ${
               activeCategory === cat
                 ? `
@@ -44,7 +43,7 @@ export default function CategoryNavbar({
                     after:w-full after:h-[2px]
                     after:bg-blue-500 dark:after:bg-white
                   `
-                : 'hover:opacity-75'
+                : 'hover:opacity-80'
             }
           `}
         >

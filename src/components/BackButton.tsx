@@ -13,8 +13,7 @@ export default function BackButton({ onBack, label }: BackButtonProps) {
         className='
           transition
           flex items-center gap-2
-          text-gray-600 dark:text-white
-          hover:text-black dark:hover:text-gray-300
+          hover:opacity-80
         '
       >
         <IoArrowBack className='text-lg' />

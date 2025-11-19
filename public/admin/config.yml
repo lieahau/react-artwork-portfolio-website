@@ -176,3 +176,74 @@ collections:
             widget: 'image'
             required: false
             hint: 'Upload a square icon.'
+
+      - label: 'Color Settings'
+        name: 'colors'
+        file: 'src/content/colors.json'
+        format: 'json'
+        fields:
+          - label: 'Website Background'
+            name: 'background'
+            widget: 'color'
+            allowInput: true
+            required: false
+
+          - label: 'Card Background'
+            name: 'cardBackground'
+            widget: 'color'
+            allowInput: true
+            required: false
+
+          - label: 'Text Color'
+            name: 'textColor'
+            widget: 'color'
+            allowInput: true
+            required: false
+
+          - label: '"My Artworks" Button Background'
+            name: 'artworksButtonBackground'
+            widget: 'color'
+            allowInput: true
+            required: false
+
+          - label: '"My Artworks" Button Text Color'
+            name: 'artworksButtonTextColor'
+            widget: 'color'
+            allowInput: true
+            required: false
+
+          - label: 'Scrollbar Track Background'
+            name: 'scrollbarTrackBackground'
+            widget: 'color'
+            allowInput: true
+            required: false
+
+          - label: 'Scrollbar Thumb Background'
+            name: 'scrollbarThumbBackground'
+            widget: 'color'
+            allowInput: true
+            required: false
+
+          - label: 'Scrollbar Thumb Border'
+            name: 'scrollbarThumbBorder'
+            widget: 'color'
+            allowInput: true
+            required: false
+
+          - label: 'Scrollbar Thumb Hover'
+            name: 'scrollbarThumbHover'
+            widget: 'color'
+            allowInput: true
+            required: false
+
+          - label: 'Category Line Color'
+            name: 'categoryLineColor'
+            widget: 'color'
+            allowInput: true
+            required: false
+
+          - label: 'Artwork Grid Empty Space Background'
+            name: 'artworkGridEmptyBackground'
+            widget: 'color'
+            allowInput: true
+            required: false

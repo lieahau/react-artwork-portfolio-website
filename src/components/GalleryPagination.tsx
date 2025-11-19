@@ -10,7 +10,7 @@ export function GalleryPagination({
   onChange,
 }: GalleryPaginationProps) {
   return (
-    <div className='flex justify-center items-center mt-0 md:mt-3 space-x-4 text-gray-700'>
+    <div className='flex justify-center items-center mt-0 md:mt-3 space-x-4'>
       <button
         onClick={() => onChange(Math.max(currentPage - 1, 1))}
         disabled={currentPage === 1}
@@ -18,13 +18,12 @@ export function GalleryPagination({
           text-lg font-medium
           disabled:opacity-40
           hover:scale-110 transition-transform
-          text-black dark:text-white
         '
       >
         &lt;
       </button>
 
-      <span className='text-sm font-medium text-black dark:text-white'>
+      <span className='text-sm font-medium'>
         {currentPage} / {totalPages}
       </span>
 
@@ -35,7 +34,6 @@ export function GalleryPagination({
           text-lg font-medium
           disabled:opacity-40
           hover:scale-110 transition-transform
-          text-black dark:text-white
         '
       >
         &gt;

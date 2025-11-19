@@ -9,9 +9,7 @@ interface OtherArtsProps {
 export default function OtherArts({ text, links }: OtherArtsProps) {
   return (
     <div className='flex flex-col items-center justify-center text-center gap-2 py-2 md:py-4 w-full'>
-      <p className='text-sm md:text-base font-bold uppercase text-black dark:text-white'>
-        {text}
-      </p>
+      <p className='text-sm md:text-base font-bold uppercase'>{text}</p>
 
       <div className='flex space-x-5 text-xl'>
         {links.map(link => {

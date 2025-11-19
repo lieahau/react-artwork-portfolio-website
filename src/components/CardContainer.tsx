@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { colorsConfig } from '../datas/colorConfig';
 
 interface CardContainerProps {
   children: React.ReactNode;
@@ -18,7 +19,8 @@ export default function CardContainer({
         transition={{
           layout: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
         }}
-        className={`bg-white dark:bg-gray-600 rounded-2xl shadow-xl w-full ${sizeClasses}`}
+        className={`rounded-2xl shadow-xl w-full ${sizeClasses}`}
+        style={{ backgroundColor: colorsConfig.cardBackground }}
       >
         {children}
       </motion.div>
