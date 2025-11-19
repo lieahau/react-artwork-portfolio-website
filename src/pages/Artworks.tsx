@@ -4,9 +4,8 @@ import OtherArts from '../components/OtherArts';
 import CategoryNavbar from '../components/CategoryNavbar';
 import Gallery from '../components/Gallery';
 import { useState } from 'react';
-import type { Category } from '../types/category';
 import artworksContent from '../content/artworks.json';
-import type { ArtworksContent } from '../types/interface';
+import type { ArtworksContent, Category } from '../types/interface';
 
 interface ArtworksProps {
   onBack: () => void;

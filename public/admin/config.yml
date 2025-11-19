@@ -129,6 +129,38 @@ collections:
                 required: false
                 hint: 'Upload if you want to override the default icon.'
 
+      - label: 'Artwork Categories'
+        name: 'artworkCategories'
+        file: 'src/content/artwork-categories.json'
+        format: 'json'
+        fields:
+          - label: 'Categories'
+            name: 'categories'
+            widget: 'list'
+            summary: '{{fields.name}}'
+            fields:
+              - { label: 'Category Name', name: 'name', widget: 'string' }
+
+      - label: 'Gallery'
+        name: 'gallery'
+        file: 'src/content/gallery.json'
+        format: 'json'
+        fields:
+          - label: 'Gallery'
+            name: 'gallery'
+            widget: 'list'
+            summary: '{{fields.src}} ({{fields.category}})'
+            fields:
+              - { label: 'Image', name: 'src', widget: 'image' }
+              - label: 'Category'
+                name: 'category'
+                widget: 'relation'
+                collection: 'artworks'
+                file: 'artworkCategories'
+                search_fields: ['categories.*.name']
+                display_fields: ['categories.*.name']
+                value_field: 'categories.*.name'
+
   - name: 'settings'
     label: 'Site Settings'
     files:

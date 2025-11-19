@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { Category } from '../types/category';
-import { artworks } from '../types/artwork';
 import { useResponsiveItemsPerPage } from '../hooks/useResponsiveItemsPerPage';
 import { GalleryGrid } from './GalleryGrid';
 import { GalleryPagination } from './GalleryPagination';
 import { Lightbox } from './Lighbox';
+import type { Category } from '../types/interface';
+import { artworksData } from '../datas/artworkData';
 
 interface GalleryProps {
   activeCategory: Category;
@@ -27,8 +27,8 @@ export default function Gallery({ activeCategory }: GalleryProps) {
   const filteredArtworks = useMemo(
     () =>
       activeCategory === 'All'
-        ? artworks
-        : artworks.filter(a => a.category === activeCategory),
+        ? artworksData
+        : artworksData.filter(a => a.category === activeCategory),
     [activeCategory]
   );
 

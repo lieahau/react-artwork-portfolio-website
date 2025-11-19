@@ -1,4 +1,5 @@
-import { categories, type Category } from '../types/category';
+import { categoriesData } from '../datas/artworkData';
+import type { Category } from '../types/interface';
 
 interface CategoryNavbarProps {
   activeCategory: Category;
@@ -22,7 +23,7 @@ export default function CategoryNavbar({
         scrollbar
       '
     >
-      {categories.map(cat => (
+      {categoriesData.map(cat => (
         <button
           key={cat}
           onClick={() => onChangeCategory(cat)}

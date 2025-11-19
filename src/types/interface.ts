@@ -36,3 +36,22 @@ export interface ViewMoreLink {
   useCustomIcon?: boolean;
   customIconImage?: string;
 }
+
+export type Category = 'All' | string;
+
+export interface Art {
+  src: string;
+  category: Exclude<Category, 'All'>;
+}
+
+export interface Arts {
+  gallery: Art[];
+}
+
+export interface ArtCategoryItem {
+  name: string;
+}
+
+export interface ArtCategories {
+  categories: ArtCategoryItem[];
+}
