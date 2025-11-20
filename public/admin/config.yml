@@ -5,6 +5,14 @@ backend:
   name: git-gateway # for production with Netlify CMS. comment it during development.
   branch: main # branch to update. comment it during development.
 
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}” - {{author-name}}'
+    update: 'Update {{collection}} “{{slug}}” - {{author-name}}'
+    delete: 'Delete {{collection}} “{{slug}}” - {{author-name}}'
+    uploadMedia: 'Upload “{{path}}” - {{author-name}}'
+    deleteMedia: 'Delete “{{path}}” - {{author-name}}'
+    openAuthoring: 'Open authoring – {{message}} - {{author-name}}'
+
 media_folder: 'public/uploads' # where uploaded files are stored in the repo
 public_folder: '/uploads' # how those files are served in the site
 
