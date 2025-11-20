@@ -22,6 +22,7 @@ const pageVariants = {
 
 interface GalleryGridProps {
   activeCategory: Category;
+  emptyCategoryText: string;
   currentItems: Art[];
   currentPage: number;
   direction: number;
@@ -31,6 +32,7 @@ interface GalleryGridProps {
 
 export function GalleryGrid({
   activeCategory,
+  emptyCategoryText,
   currentItems,
   currentPage,
   direction,
@@ -93,8 +95,8 @@ export function GalleryGrid({
                   </div>
                 ))
               ) : (
-                <div className='col-span-1 md:col-span-3 text-center text-gray-500 dark:text-gray-300'>
-                  No artworks in this category yet.
+                <div className='col-span-1 md:col-span-3 text-center'>
+                  {emptyCategoryText}
                 </div>
               )}
             </motion.div>

@@ -17,6 +17,7 @@ export interface HomeContent {
 
 export interface ArtworksContent {
   backButtonText: string;
+  emptyCategoryText: string;
   viewMoreText: string;
   viewMoreLinks: ViewMoreLink[];
 }

@@ -13,7 +13,7 @@ interface ArtworksProps {
 
 export default function Artworks({ onBack }: ArtworksProps) {
   const [activeCategory, setActiveCategory] = useState<Category>('All');
-  const { backButtonText, viewMoreText, viewMoreLinks } =
+  const { backButtonText, emptyCategoryText, viewMoreText, viewMoreLinks } =
     artworksContent as ArtworksContent;
 
   return (
@@ -49,7 +49,10 @@ export default function Artworks({ onBack }: ArtworksProps) {
 
       {/* Right Column */}
       <div className='flex flex-col overflow-hidden gap-2 md:gap-0'>
-        <Gallery activeCategory={activeCategory} />
+        <Gallery
+          activeCategory={activeCategory}
+          emptyCategoryText={emptyCategoryText}
+        />
         <div className='block md:hidden'>
           <OtherArts text={viewMoreText} links={viewMoreLinks} />
         </div>

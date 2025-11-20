@@ -8,9 +8,13 @@ import { artworksData } from '../datas/artworkData';
 
 interface GalleryProps {
   activeCategory: Category;
+  emptyCategoryText: string;
 }
 
-export default function Gallery({ activeCategory }: GalleryProps) {
+export default function Gallery({
+  activeCategory,
+  emptyCategoryText,
+}: GalleryProps) {
   const itemsPerPage = useResponsiveItemsPerPage();
   const [currentPage, setCurrentPage] = useState(1);
   const [direction, setDirection] = useState(0);
@@ -67,6 +71,7 @@ export default function Gallery({ activeCategory }: GalleryProps) {
     <div className='flex flex-col h-full p-0 overflow-hidden min-h-[40vh] md:min-h-[67vh]'>
       <GalleryGrid
         activeCategory={activeCategory}
+        emptyCategoryText={emptyCategoryText}
         currentItems={currentItems}
         currentPage={currentPage}
         direction={direction}
