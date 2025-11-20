@@ -28,6 +28,17 @@ function init() {
 
     link.href = href;
   }
+
+  if (
+    typeof window !== 'undefined' &&
+    window.location.hash &&
+    (window.location.hash.startsWith('#invite_token=') ||
+      window.location.hash.startsWith('#confirmation_token=') ||
+      window.location.hash.startsWith('#recovery_token=') ||
+      window.location.hash.startsWith('#email_change_token='))
+  ) {
+    window.location.replace('/admin/' + window.location.hash);
+  }
 }
 
 init();

@@ -1,9 +1,9 @@
+local_backend: true # enable the local backend for development, don't remove it.
+
 backend:
   # name: test-repo # for testing with a local git repo. comment it during production.
   name: git-gateway # for production with Netlify CMS. comment it during development.
   branch: main # branch to update. comment it during development.
-
-local_backend: true # enable the local backend for development, don't remove it.
 
 media_folder: 'public/uploads' # where uploaded files are stored in the repo
 public_folder: '/uploads' # how those files are served in the site
