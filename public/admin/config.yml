@@ -6,12 +6,12 @@ backend:
   branch: main # branch to update. comment it during development.
 
   commit_messages:
-    create: 'Create {{collection}} “{{slug}}” - {{author-name}}'
-    update: 'Update {{collection}} “{{slug}}” - {{author-name}}'
-    delete: 'Delete {{collection}} “{{slug}}” - {{author-name}}'
-    uploadMedia: 'Upload “{{path}}” - {{author-name}}'
-    deleteMedia: 'Delete “{{path}}” - {{author-name}}'
-    openAuthoring: 'Open authoring – {{message}} - {{author-name}}'
+    create: 'Create {{collection}} “{{slug}}” - {{author-name}} - {{author-login}}'
+    update: 'Update {{collection}} “{{slug}}” - {{author-name}} - {{author-login}}'
+    delete: 'Delete {{collection}} “{{slug}}” - {{author-name}} - {{author-login}}'
+    uploadMedia: 'Upload “{{path}}” - {{author-name}} - {{author-login}}'
+    deleteMedia: 'Delete “{{path}}” - {{author-name}} - {{author-login}}'
+    openAuthoring: 'Open authoring – {{message}} - {{author-name}} - {{author-login}}'
 
 media_folder: 'public/uploads' # where uploaded files are stored in the repo
 public_folder: '/uploads' # how those files are served in the site
