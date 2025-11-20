@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { colorsConfig } from '../datas/colorConfig';
 
 interface ArtworksButtonProps {
   onNavigate: () => void;
@@ -18,11 +19,14 @@ export default function ArtworksButton({
         transition
         mt-4 px-6 py-3
         rounded-full
-        text-white text-sm font-medium
+        text-sm font-medium
         shadow
-        hover:bg-gray-800
-        bg-black
+        hover:opacity-90
       '
+      style={{
+        backgroundColor: colorsConfig.artworksButtonBackground,
+        color: colorsConfig.artworksButtonTextColor,
+      }}
     >
       {label}
     </motion.button>

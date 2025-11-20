@@ -5,16 +5,14 @@ const DEFAULT_COLORS: Colors = {
   background: '#000000',
   cardBackground: '#4b5563',
   textColor: '#ffffff',
-
-  // WIP
-  artworksButtonBackground: '#f97316',
-  artworksButtonTextColor: '#000000',
-  scrollbarTrackBackground: '#050509',
-  scrollbarThumbBackground: '#27272f',
-  scrollbarThumbBorder: '#050509',
-  scrollbarThumbHover: '#3f3f4b',
-  categoryLineColor: '#f97316',
-  artworkGridEmptyBackground: '#050509',
+  artworksButtonBackground: '#000000',
+  artworksButtonTextColor: '#ffffff',
+  categoryLineColor: '#ffffff',
+  scrollbarTrackBackground: '#2d3748',
+  scrollbarThumbBackground: '#718096',
+  scrollbarThumbBorder: '#2d3748',
+  scrollbarThumbHover: '#8d8d8d',
+  artworkGridBackground: '#6b7280',
 };
 
 // Remove empty strings ("" / "   ") so defaults can take over

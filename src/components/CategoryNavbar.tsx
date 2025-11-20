@@ -1,5 +1,7 @@
+import type { CSSProperties } from 'react';
 import { categoriesData } from '../datas/artworkData';
 import type { Category } from '../types/interface';
+import { colorsConfig } from '../datas/colorConfig';
 
 interface CategoryNavbarProps {
   activeCategory: Category;
@@ -22,6 +24,11 @@ export default function CategoryNavbar({
         md:max-h-[35vh]
         scrollbar
       '
+      style={
+        {
+          '--category-line-color': colorsConfig.categoryLineColor,
+        } as CSSProperties
+      }
     >
       {categoriesData.map(cat => (
         <button
@@ -41,7 +48,7 @@ export default function CategoryNavbar({
                     font-bold
                     after:absolute after:left-0 after:bottom-0
                     after:w-full after:h-[2px]
-                    after:bg-blue-500 dark:after:bg-white
+                    after:bg-[var(--category-line-color)]
                   `
                 : 'hover:opacity-80'
             }

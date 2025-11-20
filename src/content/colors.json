@@ -1,13 +1,13 @@
 {
-  "artworkGridEmptyBackground": "",
-  "artworksButtonTextColor": "",
-  "scrollbarThumbHover": "",
   "background": "#000000",
-  "categoryLineColor": "",
-  "scrollbarTrackBackground": "",
-  "textColor": "#ffffff",
-  "scrollbarThumbBorder": "",
   "cardBackground": "#4b5563",
-  "scrollbarThumbBackground": "",
-  "artworksButtonBackground": ""
+  "textColor": "#ffffff",
+  "artworksButtonBackground": "#000000",
+  "artworksButtonTextColor": "#ffffff",
+  "categoryLineColor": "#ffffff",
+  "scrollbarTrackBackground": "#2d3748",
+  "scrollbarThumbBackground": "#718096",
+  "scrollbarThumbBorder": "#2d3748",
+  "scrollbarThumbHover": "#8d8d8d",
+  "artworkGridBackground": "#6b7280"
 }

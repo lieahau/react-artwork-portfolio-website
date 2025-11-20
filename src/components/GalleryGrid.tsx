@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import type { Art, Category } from '../types/interface';
+import { colorsConfig } from '../datas/colorConfig';
 
 const categoryVariants = {
   initial: { opacity: 0 },
@@ -75,12 +76,14 @@ export function GalleryGrid({
                       w-full h-full
                       overflow-hidden
                       aspect-square rounded-lg
-                      bg-gray-100 dark:bg-gray-500
                       mx-auto
                       cursor-pointer
                       max-w-[85%] md:max-w-none
                       max-h-[85%] md:max-h-none
                     '
+                    style={{
+                      backgroundColor: colorsConfig.artworkGridBackground,
+                    }}
                   >
                     <img
                       src={art.src}

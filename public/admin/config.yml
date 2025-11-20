@@ -187,63 +187,74 @@ collections:
             widget: 'color'
             allowInput: true
             required: false
+            hint: 'Empty it if you want to set default color.'
 
           - label: 'Card Background'
             name: 'cardBackground'
             widget: 'color'
             allowInput: true
             required: false
+            hint: 'Empty it if you want to set default color.'
 
           - label: 'Text Color'
             name: 'textColor'
             widget: 'color'
             allowInput: true
             required: false
+            hint: 'Empty it if you want to set default color.'
 
           - label: '"My Artworks" Button Background'
             name: 'artworksButtonBackground'
             widget: 'color'
             allowInput: true
             required: false
+            hint: 'Empty it if you want to set default color.'
 
           - label: '"My Artworks" Button Text Color'
             name: 'artworksButtonTextColor'
             widget: 'color'
             allowInput: true
             required: false
-
-          - label: 'Scrollbar Track Background'
-            name: 'scrollbarTrackBackground'
-            widget: 'color'
-            allowInput: true
-            required: false
-
-          - label: 'Scrollbar Thumb Background'
-            name: 'scrollbarThumbBackground'
-            widget: 'color'
-            allowInput: true
-            required: false
-
-          - label: 'Scrollbar Thumb Border'
-            name: 'scrollbarThumbBorder'
-            widget: 'color'
-            allowInput: true
-            required: false
-
-          - label: 'Scrollbar Thumb Hover'
-            name: 'scrollbarThumbHover'
-            widget: 'color'
-            allowInput: true
-            required: false
+            hint: 'Empty it if you want to set default color.'
 
           - label: 'Category Line Color'
             name: 'categoryLineColor'
             widget: 'color'
             allowInput: true
             required: false
+            hint: 'Empty it if you want to set default color.'
 
-          - label: 'Artwork Grid Empty Space Background'
-            name: 'artworkGridEmptyBackground'
+          - label: 'Scrollbar Track Background'
+            name: 'scrollbarTrackBackground'
             widget: 'color'
             allowInput: true
             required: false
+            hint: 'Empty it if you want to set default color.'
+
+          - label: 'Scrollbar Thumb Background (The Scrollbar)'
+            name: 'scrollbarThumbBackground'
+            widget: 'color'
+            allowInput: true
+            required: false
+            hint: 'Empty it if you want to set default color.'
+
+          - label: 'Scrollbar Thumb Border (The Border of the Scrollbar)'
+            name: 'scrollbarThumbBorder'
+            widget: 'color'
+            allowInput: true
+            required: false
+            hint: 'Empty it if you want to set default color.'
+
+          - label: 'Scrollbar Thumb Hover (The Scrollbar on Hover)'
+            name: 'scrollbarThumbHover'
+            widget: 'color'
+            allowInput: true
+            required: false
+            hint: 'Empty it if you want to set default color.'
+
+          - label: 'Artwork Grid Background (The Empty Area Behind Non-Square Artworks)'
+            name: 'artworkGridBackground'
+            widget: 'color'
+            allowInput: true
+            required: false
+            hint: 'Empty it if you want to set default color.'

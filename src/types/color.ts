@@ -9,5 +9,5 @@ export type Colors = {
   scrollbarThumbBorder: string;
   scrollbarThumbHover: string;
   categoryLineColor: string;
-  artworkGridEmptyBackground: string;
+  artworkGridBackground: string;
 };

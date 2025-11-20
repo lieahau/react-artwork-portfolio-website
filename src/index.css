@@ -10,6 +10,13 @@ body {
 }
 
 @layer utilities {
+  :root {
+    --scrollbar-track-bg: #2d3748;
+    --scrollbar-thumb-bg: #718096;
+    --scrollbar-thumb-border: #2d3748;
+    --scrollbar-thumb-hover-bg: #8d8d8d;
+  }
+
   .scrollbar::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -17,36 +24,16 @@ body {
 
   .scrollbar::-webkit-scrollbar-track {
     border-radius: 100vh;
-    background: #f7f4ed;
+    background: var(--scrollbar-track-bg);
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
-    background: #e0cbcb;
+    background: var(--scrollbar-thumb-bg);
     border-radius: 100vh;
-    border: 2px solid #f6f7ed;
+    border: 2px solid var(--scrollbar-thumb-border);
   }
 
   .scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #c0a0a0;
-  }
-
-  .dark .scrollbar::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  .dark .scrollbar::-webkit-scrollbar-track {
-    border-radius: 100vh;
-    background: #2d3748;
-  }
-
-  .dark .scrollbar::-webkit-scrollbar-thumb {
-    background-color: #718096;
-    border-radius: 100vh;
-    border: 2px solid #2d3748;
-  }
-
-  .dark .scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #8d8d8d;
+    background: var(--scrollbar-thumb-hover-bg);
   }
 }
